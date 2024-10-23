@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from '@tanstack/react-router';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -10,22 +11,28 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
-import { useNavigate } from 'react-router';
+import { useAuth } from '@/lib/auth';
+import { useToast } from "@/components/ui/use-toast"
 
-export default function Login({
-  onLogin,
-}: {
-  onLogin: (email: string, password: string) => void;
-}) {
+export function Login() {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const navigate = useNavigate();
+  const { login } = useAuth();
+  const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onLogin(email, password);
-    localStorage.setItem('isAuthenticated', "true")
-    navigate('/');
+    if (login(email, password)) {
+      localStorage.setItem('isAuthenticated', "true");
+      navigate({ to: '/' });
+    } else {
+      toast({
+        title: "Error de autenticación",
+        description: "Email o contraseña incorrectos",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
