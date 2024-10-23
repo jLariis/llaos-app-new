@@ -6,7 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
-import { CalendarDays, GraduationCap, Users, BookOpen, ClipboardList, Menu, Bell, Search, Sun, Moon } from 'lucide-react'
+import { Users, CalendarDays, GraduationCap, Truck, BookOpen, ClipboardList, Menu, Bell, Search, Sun, Moon, CircleDollarSign } from 'lucide-react'
 import { useTheme } from "next-themes"
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
@@ -54,7 +54,7 @@ export default function Dashboard() {
       <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-14 items-center">
           <div className="mr-4 hidden md:flex">
-            <h1 className="text-xl font-bold">Gestión Escolar</h1>
+            <h1 className="text-xl font-bold">Llaos Acuacultura</h1>
           </div>
           <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
             <div className="w-full flex-1 md:w-auto md:flex-none">
@@ -145,17 +145,17 @@ export default function Dashboard() {
         <Tabs defaultValue="dashboard" className="space-y-4">
           <TabsList>
             <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
-            <TabsTrigger value="estudiantes">Estudiantes</TabsTrigger>
-            <TabsTrigger value="profesores">Profesores</TabsTrigger>
-            <TabsTrigger value="cursos">Cursos</TabsTrigger>
-            <TabsTrigger value="horarios">Horarios</TabsTrigger>
+            <TabsTrigger value="estudiantes">Administración</TabsTrigger>
+            <TabsTrigger value="profesores">Compras</TabsTrigger>
+            <TabsTrigger value="cursos">Inventarios</TabsTrigger>
+            <TabsTrigger value="horarios">Laboratorio</TabsTrigger>
           </TabsList>
           <TabsContent value="dashboard" className="space-y-4">
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">Total Estudiantes</CardTitle>
-                  <Users className="h-4 w-4 text-muted-foreground" />
+                  <CardTitle className="text-sm font-medium">Requisiciones</CardTitle>
+                  <ClipboardList className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">1,234</div>
@@ -164,8 +164,8 @@ export default function Dashboard() {
               </Card>
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">Promedio de Asistencia</CardTitle>
-                  <CalendarDays className="h-4 w-4 text-muted-foreground" />
+                  <CardTitle className="text-sm font-medium">Órdenes</CardTitle>
+                  <CircleDollarSign className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">92%</div>
@@ -174,8 +174,8 @@ export default function Dashboard() {
               </Card>
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">Promedio de Calificaciones</CardTitle>
-                  <ClipboardList className="h-4 w-4 text-muted-foreground" />
+                  <CardTitle className="text-sm font-medium">Órdenes Ruta</CardTitle>
+                  <Truck className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">8.5</div>
